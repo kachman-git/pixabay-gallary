@@ -39,7 +39,7 @@ export default function Home() {
       )}
       {isLoading ? (
         <h1 className="mt-20 mx-auto text-2xl text-center animate-bounce animate text-green-500">
-          Loading.....
+          <div className="w-8 h-12 bottom-8 border-green-500 border-dashed rounded-full animate-spin"></div>
         </h1>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3  gap-5">
