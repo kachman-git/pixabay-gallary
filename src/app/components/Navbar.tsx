@@ -10,7 +10,7 @@ const Navbar = ({ setSearchText, setErr }: props) => {
   const [text, setText] = useState("");
 
   const handleSearch = () => {
-    if (text === "") {
+    if (Number.length === 0) {
       return setErr("Put Text To Search");
     }
     setSearchText(text);
@@ -18,7 +18,7 @@ const Navbar = ({ setSearchText, setErr }: props) => {
   };
 
   return (
-    <nav className="flex p-6 space-x-4 mb-4 mt-7 w-full justify-center border-b-2 border shadow-sm">
+    <nav className="flex p-6 space-x-4 my-7 w-full justify-center border-b-2 border shadow-sm">
       <input
         type="text"
         placeholder="Enter Text"
