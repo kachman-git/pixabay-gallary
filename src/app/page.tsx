@@ -7,14 +7,14 @@ import Navbar from "./components/Navbar";
 export default function Home() {
   const [images, setImages] = useState<Images[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-  const [searchText, setSearchText] = useState<string>("");
+  const [searchText, setSearchText] = useState<string>("cat");
   const [err, setErr] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await fetch(
-          `https://pixabay.com/api/?key=${process.env.NEXT_PUBLIC_APP_PIXIBAY_IMAGES}&q=cat&image_type=photo&pretty=true`
+          `https://pixabay.com/api/?key=${process.env.NEXT_PUBLIC_APP_PIXIBAY_IMAGES}&q=${searchText}&image_type=photo&pretty=true`
         );
 
         const data = await res.json();
@@ -27,17 +27,27 @@ export default function Home() {
     };
 
     fetchData();
-  }, []);
+  }, [searchText]);
 
   return (
     <main className="container mx-auto p-6">
-      <Navbar setSearchText={setSearchText} />
-
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        {images.map((image) => (
-          <Card key={image.id} {...image} />
-        ))}
-      </div>
+      <Navbar setSearchText={setSearchText} setErr={setErr} />
+      {!isLoading && images.length === 0 && (
+        <h1 className="mt-20 mx-auto text-xl text-center animate-bounce animate text-red-400">
+          No Images Found. {err}
+        </h1>
+      )}
+      {isLoading ? (
+        <h1 className="mt-20 mx-auto text-xl text-center animate-bounce animate text-green-500">
+          Loading.....
+        </h1>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-5">
+          {images.map((image) => (
+            <Card key={image.id} {...image} isLoading={isLoading} />
+          ))}
+        </div>
+      )}
     </main>
   );
 }

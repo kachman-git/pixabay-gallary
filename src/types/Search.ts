@@ -5,5 +5,6 @@ export type Images = {
   tags: string;
   views: number;
   likes: number;
-  download: number;
+  downloads: number;
+  isLoading?: boolean;
 };

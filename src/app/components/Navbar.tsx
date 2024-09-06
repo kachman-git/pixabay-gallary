@@ -1,22 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
 type props = {
-  setSearchText: any;
+  setSearchText: Dispatch<SetStateAction<string>>;
+  setErr: Dispatch<SetStateAction<string | null>>;
 };
 
-const Navbar = ({ setSearchText }: props) => {
+const Navbar = ({ setSearchText, setErr }: props) => {
   const [text, setText] = useState("");
 
   const handleSearch = () => {
+    if (text === "") {
+      return setErr("Put Text To Search");
+    }
     setSearchText(text);
+    setText("");
   };
 
   return (
-    <nav className="flex p-6 mt-7 w-full justify-center border-b-2 border">
+    <nav className="flex p-6 space-x-4 mb-4 mt-7 w-full justify-center border-b-2 border shadow-sm">
       <input
         type="text"
-        className="p-4 rounded outline-none focus:ring-green-500 "
+        placeholder="Enter Text"
+        className="p-4 rounded outline-none ring-green-500 focus:ring-green-500 "
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
