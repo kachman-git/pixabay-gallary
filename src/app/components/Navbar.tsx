@@ -3,16 +3,12 @@ import React, { Dispatch, SetStateAction, useState } from "react";
 
 type props = {
   setSearchText: Dispatch<SetStateAction<string>>;
-  setErr: Dispatch<SetStateAction<string | null>>;
 };
 
-const Navbar = ({ setSearchText, setErr }: props) => {
+const Navbar = ({ setSearchText }: props) => {
   const [text, setText] = useState("");
 
   const handleSearch = () => {
-    if (Number.length === 0) {
-      return setErr("Put Text To Search");
-    }
     setSearchText(text);
     setText("");
   };

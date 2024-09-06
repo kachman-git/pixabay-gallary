@@ -31,14 +31,14 @@ export default function Home() {
 
   return (
     <main className="container mx-auto p-6">
-      <Navbar setSearchText={setSearchText} setErr={setErr} />
+      <Navbar setSearchText={setSearchText} />
       {!isLoading && images.length === 0 && (
-        <h1 className="mt-20 mx-auto text-xl text-center animate-bounce animate text-red-400">
+        <h1 className="mt-20 mx-auto text-2xl text-center animate-bounce animate text-red-400">
           No Images Found. {err}
         </h1>
       )}
       {isLoading ? (
-        <h1 className="mt-20 mx-auto text-xl text-center animate-bounce animate text-green-500">
+        <h1 className="mt-20 mx-auto text-2xl text-center animate-bounce animate text-green-500">
           Loading.....
         </h1>
       ) : (
