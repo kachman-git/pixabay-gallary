@@ -13,7 +13,7 @@ const Navbar = ({ setSearchText }: props) => {
   };
 
   return (
-    <nav className="flex p-6 mt-7 w-full justify-center">
+    <nav className="flex p-6 mt-7 w-full justify-center border-b-2 border">
       <input
         type="text"
         className="p-4 rounded outline-none focus:ring-green-500 "
