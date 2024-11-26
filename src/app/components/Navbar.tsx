@@ -6,11 +6,18 @@ type props = {
 };
 
 const Navbar = ({ setSearchText }: props) => {
-  const [text, setText] = useState("");
+  const [query, setQuery] = useState("");
 
   const handleSearch = () => {
-    setSearchText(text);
-    setText("");
+    setSearchText(query);
+    setQuery("");
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+      setQuery("");
+    }
   };
 
   return (
@@ -19,8 +26,9 @@ const Navbar = ({ setSearchText }: props) => {
         type="text"
         placeholder="Enter Text"
         className="p-4 rounded outline-none ring-green-500 focus:ring-green-500 "
-        value={text}
-        onChange={(e) => setText(e.target.value)}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button
         className="p-4 rounded bg-green-500 text-white "
