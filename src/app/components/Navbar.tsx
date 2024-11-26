@@ -25,7 +25,7 @@ const Navbar = ({ setSearchText }: props) => {
       <input
         type="text"
         placeholder="Enter Text"
-        className="p-4 rounded outline-none ring-green-500 focus:ring-green-500 "
+        className="p-4 rounded-lg outline-none ring-green-500 focus:ring-green-500 "
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}

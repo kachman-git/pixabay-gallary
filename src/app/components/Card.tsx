@@ -25,7 +25,7 @@ const Card = (props: Images) => {
           <span className="font-bold">Likes: </span>
           {props.likes}
         </p>
-        <span className="flex flex-row justify-evenly items-center">
+        <span className="flex flex-row flex-wrap space-x-4 space-y-4 items-center">
           {props.tags.split(", ").map((tag) => (
             <p
               className="px-5 py-3 mt-4 rounded-full  bg-slate-300 text-gray-800"
