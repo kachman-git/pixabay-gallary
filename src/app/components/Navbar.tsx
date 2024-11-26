@@ -21,7 +21,7 @@ const Navbar = ({ setSearchText }: props) => {
   };
 
   return (
-    <nav className="flex p-6 space-x-4 my-7 w-full justify-center border-b-2 border shadow-sm">
+    <nav className="flex p-6 px-10 space-x-4 my-7 w-full justify-center border-b-2 border shadow-sm">
       <input
         type="text"
         placeholder="Enter Text"
@@ -31,7 +31,7 @@ const Navbar = ({ setSearchText }: props) => {
         onKeyDown={handleKeyDown}
       />
       <button
-        className="p-4 rounded bg-green-500 text-white "
+        className="p-4 rounded bg-green-500 text-white hidden md:block"
         onClick={handleSearch}
       >
         Search
