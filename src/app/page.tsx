@@ -30,7 +30,7 @@ export default function Home() {
   }, [searchText]);
 
   return (
-    <main className="container mx-auto p-6">
+    <main className="container mx-auto pt-6 px-12 md:px-6">
       <Navbar setSearchText={setSearchText} />
       {!isLoading && images.length === 0 && (
         <h1 className="mt-20 mx-auto text-2xl text-center animate-bounce animate text-red-400">
