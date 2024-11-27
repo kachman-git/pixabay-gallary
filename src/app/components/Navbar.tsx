@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { Dispatch, SetStateAction, useState } from "react";
 
 type props = {
@@ -31,10 +32,10 @@ const Navbar = ({ setSearchText }: props) => {
         onKeyDown={handleKeyDown}
       />
       <button
-        className="p-4 rounded bg-green-500 text-white hidden md:block"
+        className="p-4 rounded bg-green-500 text-white"
         onClick={handleSearch}
       >
-        Search
+        <Image src={"./search.svg"} alt="search" width={20} height={20} />
       </button>
     </nav>
   );
